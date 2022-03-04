@@ -1,7 +1,7 @@
 import { Diff, DiffResult } from "./types";
 import { fillStrings } from "./utils";
 
-const sdiff = (str1: string, str2: string): DiffResult => {
+const striff = (str1: string, str2: string): DiffResult => {
   const added: Diff[] = [];
   const removed: Diff[] = [];
   const [strArr1, strArr2] = fillStrings(str1, str2);
@@ -29,4 +29,4 @@ const sdiff = (str1: string, str2: string): DiffResult => {
   return { added, removed };
 };
 
-export default sdiff;
+export default striff;

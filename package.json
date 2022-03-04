@@ -1,5 +1,5 @@
 {
-  "name": "sdiff",
+  "name": "striff",
   "description": "Simple string diffing.",
   "author": "Alex MacArthur (https://macarthur.me)",
   "version": "0.0.1",
