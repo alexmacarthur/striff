@@ -1,0 +1,3 @@
+# striff
+
+Simple string diffing.
