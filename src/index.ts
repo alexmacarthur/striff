@@ -2,9 +2,9 @@ import { Diff, DiffResult } from "./types";
 import { fillStrings } from "./utils";
 
 const striff = (str1: string, str2: string): DiffResult => {
-  const added: Diff[] = [];
-  const removed: Diff[] = [];
-  const [strArr1, strArr2] = fillStrings(str1, str2);
+  let added: Diff[] = [];
+  let removed: Diff[] = [];
+  let [strArr1, strArr2] = fillStrings([str1, str2]);
 
   for (let i = 0; i < strArr1.length; i++) {
     if (strArr1[i] === strArr2[i]) {
