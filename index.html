@@ -8,6 +8,21 @@
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <script type="module">
+      import striff from "/src/index.ts"
+
+      let str1 = "abc";
+      let str2 = "123bc";
+      console.log(striff(str1, str2));
+
+      // console.log("===");
+
+      // let str1 = "abbbbc";
+      // let str2 = "bc";
+      // console.log(striff(str1, str2));
+
+      // if there are two or more matching characters, assume they are together...
+
+    </script>
   </body>
 </html>
