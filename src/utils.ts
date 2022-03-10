@@ -47,7 +47,7 @@ const shiftedDueToAdditionOrRemoval = (str1: string, str2: string): boolean => {
 /**
  * These parameters of strings MUST be in descending order by length.
  */
-const fill = (strs: string[], isFlipped: boolean) => {
+const fill = (strs: string[]) => {
   let [str1, str2] = strs;
   let strArr1 = split(str1);
   let strArr2 = split(str2) as FilledString;
@@ -64,7 +64,9 @@ const fill = (strs: string[], isFlipped: boolean) => {
     let isChangedCharacter = strArr2[i] && strArr1[i] !== strArr2[i];
 
     if (isSameCharacter) {
-      if (latestIndexMatch > i && latestIndexMatch - i > 1) {
+      let diff = latestIndexMatch - i;
+
+      if (diff > 1) {
         let items = new Array(latestIndexMatch - i).fill(null);
 
         // Necessary for handling strings in which duplicate
@@ -75,7 +77,7 @@ const fill = (strs: string[], isFlipped: boolean) => {
         //
         // When REMOVED, we want the first character to be shoved to back.
         // Ex: null null null b c
-        let insertIndex = isFlipped ? latestIndexMatch : i;
+        let insertIndex = strArr2[i - 1] ? latestIndexMatch : i;
 
         strArr2.splice(insertIndex, 0, ...items);
 
@@ -107,7 +109,7 @@ export const fillStrings = (strs: string[]): FilledString[] => {
     strs = [strs[1], strs[0]];
   }
 
-  let filledArrs = fill(strs, shouldFlip);
+  let filledArrs = fill(strs);
 
   return shouldFlip ? [filledArrs[1], filledArrs[0]] : filledArrs;
 };

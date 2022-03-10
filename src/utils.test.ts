@@ -39,10 +39,10 @@ describe("strings with duplicate characters", () => {
   });
 
   it("Fills strings adding characters to beginning.", () => {
-    const [arr1, arr2] = fillStrings(["abc", "xxabc"]);
+    const [arr1, arr2] = fillStrings(["abc", "xxxabc"]);
 
-    expect(arr1).toEqual([null, null, "a", "b", "c"]);
-    expect(arr2).toEqual(["x", "x", "a", "b", "c"]);
+    expect(arr1).toEqual([null, null, null, "a", "b", "c"]);
+    expect(arr2).toEqual(["x", "x", "x", "a", "b", "c"]);
   });
 
   it("Fills strings removing characters from beginning.", () => {
@@ -57,5 +57,12 @@ describe("strings with duplicate characters", () => {
 
     expect(arr1).toEqual(["a", "b", "b", "b", "c"]);
     expect(arr2).toEqual(["a", "b", "b", null, null]);
+  });
+
+  it("Fills strings removing MORE characters from end.", () => {
+    const [arr1, arr2] = fillStrings(["abbbc", "ab"]);
+
+    expect(arr1).toEqual(["a", "b", "b", "b", "c"]);
+    expect(arr2).toEqual(["a", "b", null, null, null]);
   });
 });

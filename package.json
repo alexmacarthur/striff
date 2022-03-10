@@ -11,6 +11,7 @@
     "dist/"
   ],
   "scripts": {
+    "start": "vite",
     "test": "jest",
     "build": "tsc --noEmit --emitDeclarationOnly false && vite build && tsc",
     "format": "prettier --write src/**/*.ts"
