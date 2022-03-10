@@ -31,6 +31,8 @@ Here's the kind of result you'll get with different types of diffing.
 
 ### Strings w/ Characters Added
 
+#### Input
+
 ```js
 const str1 = "abc";
 const str2 = "abcde";
@@ -57,6 +59,8 @@ const result = striff(str, str2);
 ```
 
 ### Strings w/ Characters Removed
+
+#### Input
 
 ```js
 const str1 = "abc";
@@ -86,6 +90,8 @@ const result = striff(str, str2);
 ### Strings w/ Duplicate Characters
 
 Handling strings with duplicate, consecutive characters removed is a little weird. For strings whose characters were changed at the _end_, the indices will be grouped together at the end of the string.
+
+#### Input
 
 ```js
 const str1 = "abbbc";
@@ -118,6 +124,8 @@ const result = striff(str, str2);
 
 For those whose whose characters were changed at the _beginning_, the indices will be grouped together at the beginning.
 
+#### Input
+
 ```js
 const str1 = "abbbc";
 const str2 = "bc";
@@ -146,3 +154,7 @@ const result = striff(str, str2);
   removed: []
 }
 ```
+
+## Feedback or Contributions
+
+Make an issue or a pull request!
