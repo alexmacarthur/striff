@@ -1,5 +1,7 @@
 # striff
 
+[![Bundle Size](https://badgen.net/bundlephobia/minzip/striff](https://bundlephobia.com/result?p=striff
+
 Simple string diffing. Given two strings, `striff` will return an object noting which characters were added or removed, and at which indices.
 
 ## Installation
