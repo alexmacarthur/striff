@@ -39,7 +39,7 @@ Here's the kind of result you'll get with different types of diffing.
 const str1 = "abc";
 const str2 = "abcde";
 
-const result = striff(str, str2);
+const result = striff(str1, str2);
 ```
 
 #### Result
@@ -68,7 +68,7 @@ const result = striff(str, str2);
 const str1 = "abc";
 const str2 = "a";
 
-const result = striff(str, str2);
+const result = striff(str1, str2);
 ```
 
 #### Result
@@ -99,7 +99,7 @@ Handling strings with duplicate, consecutive characters removed is a little weir
 const str1 = "abbbc";
 const str2 = "ab";
 
-const result = striff(str, str2);
+const result = striff(str1, str2);
 ```
 
 #### Result
@@ -132,16 +132,17 @@ For those whose whose characters were changed at the _beginning_, the indices wi
 const str1 = "abbbc";
 const str2 = "bc";
 
-const result = striff(str, str2);
+const result = striff(str1, str2);
 ```
 
 #### Result
 
 ```js
 {
-  added: [
+  added: [].
+  removed: [
     {
-      character: "b",
+      character: "a",
       index: 0
     },
     {
@@ -149,11 +150,10 @@ const result = striff(str, str2);
       index: 1
     },
     {
-      character: "c",
+      character: "b",
       index: 2
     }
-  ],
-  removed: []
+  ]
 }
 ```
 
