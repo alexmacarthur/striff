@@ -14,6 +14,13 @@ describe("characters are added", () => {
     expect(removed).toHaveLength(0);
     expect(added).toEqual([{ character: "d", index: 3 }]);
   });
+
+  it("Correctly diffs when characters are added to middle.", () => {
+    const { added, removed } = striff("hi pal", "hi, pal");
+
+    expect(removed).toHaveLength(0);
+    expect(added).toEqual([{ character: ",", index: 2}]);
+  });
 });
 
 describe("characters are removed", () => {
