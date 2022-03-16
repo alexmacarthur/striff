@@ -1,32 +1,14 @@
-import { Diff, DiffResult } from "./types";
-import { fillStrings } from "./utils";
+import { DiffResult } from "./types";
+import { fillStrings } from "./utils/fillStrings";
+import getDiff from "./utils/getDiff";
 
 const striff = (str1: string, str2: string): DiffResult => {
-  let added: Diff[] = [];
-  let removed: Diff[] = [];
-  let [strArr1, strArr2] = fillStrings([str1, str2]);
+  let [strArr1, strArr2] = fillStrings(str1, str2);
 
-  for (let i = 0; i < strArr1.length; i++) {
-    if (strArr1[i] === strArr2[i]) {
-      continue;
-    }
-
-    if (strArr2[i]) {
-      added.push({
-        character: strArr2[i] as string,
-        index: i,
-      });
-    }
-
-    if (strArr1[i]) {
-      removed.push({
-        character: strArr1[i] as string,
-        index: i,
-      });
-    }
-  }
-
-  return { added, removed };
+  return {
+    added: getDiff(strArr2, strArr1),
+    removed: getDiff(strArr1, strArr2),
+  };
 };
 
 export default striff;
