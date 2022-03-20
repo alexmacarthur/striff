@@ -12,14 +12,14 @@ describe("characters are added", () => {
     const { added, removed } = striff("abc", "abcd");
 
     expect(removed).toHaveLength(0);
-    expect(added).toEqual([{ character: "d", index: 3 }]);
+    expect(added).toEqual([{ value: "d", index: 3 }]);
   });
 
   it("Correctly diffs when characters are added to middle.", () => {
     const { added, removed } = striff("hi pal", "hi, pal");
 
     expect(removed).toHaveLength(0);
-    expect(added).toEqual([{ character: ",", index: 2}]);
+    expect(added).toEqual([{ value: ",", index: 2}]);
   });
 });
 
@@ -31,11 +31,11 @@ describe("characters are removed", () => {
     expect(removed).toHaveLength(2);
     expect(removed).toEqual([
       {
-        character: "b",
+        value: "b",
         index: 1,
       },
       {
-        character: "c",
+        value: "c",
         index: 2,
       },
     ]);
@@ -48,7 +48,7 @@ describe("characters are removed", () => {
     expect(removed).toHaveLength(1);
     expect(removed).toEqual([
       {
-        character: "a",
+        value: "a",
         index: 0,
       },
     ]);
@@ -63,13 +63,13 @@ describe("characters have changed", () => {
     expect(removed).toHaveLength(1);
     expect(removed).toEqual([
       {
-        character: "b",
+        value: "b",
         index: 1,
       },
     ]);
     expect(added).toEqual([
       {
-        character: "z",
+        value: "z",
         index: 1,
       },
     ]);
@@ -82,29 +82,29 @@ describe("characters have changed", () => {
     expect(removed).toHaveLength(3);
     expect(removed).toEqual([
       {
-        character: "a",
+        value: "a",
         index: 0,
       },
       {
-        character: "b",
+        value: "b",
         index: 1,
       },
       {
-        character: "c",
+        value: "c",
         index: 2,
       },
     ]);
     expect(added).toEqual([
       {
-        character: "x",
+        value: "x",
         index: 0,
       },
       {
-        character: "y",
+        value: "y",
         index: 1,
       },
       {
-        character: "z",
+        value: "z",
         index: 2,
       },
     ]);
@@ -119,37 +119,37 @@ describe("characters are changed and added", () => {
     expect(removed).toHaveLength(3);
     expect(removed).toEqual([
       {
-        character: "a",
+        value: "a",
         index: 0,
       },
       {
-        character: "b",
+        value: "b",
         index: 1,
       },
       {
-        character: "c",
+        value: "c",
         index: 2,
       },
     ]);
     expect(added).toEqual([
       {
-        character: "x",
+        value: "x",
         index: 0,
       },
       {
-        character: "y",
+        value: "y",
         index: 1,
       },
       {
-        character: "z",
+        value: "z",
         index: 2,
       },
       {
-        character: "1",
+        value: "1",
         index: 3,
       },
       {
-        character: "2",
+        value: "2",
         index: 4,
       },
     ]);

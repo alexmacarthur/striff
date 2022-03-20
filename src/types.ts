@@ -1,16 +1,12 @@
-export interface Diff {
-  character: string;
-  index: number;
+export interface Character {
+  index: number,
+  value: string,
+  ref: Symbol | null
 }
+
+export type PrunedCharacter = Pick<Character, "index" | "value">;
 
 export interface DiffResult {
-  added: Diff[];
-  removed: Diff[];
+  added: PrunedCharacter[];
+  removed: PrunedCharacter[];
 }
-
-export interface Character {
-  value: string | null,
-  accountedFor: boolean
-}
-
-export type FilledString = (string | null)[];

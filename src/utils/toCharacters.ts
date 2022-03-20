@@ -1,8 +1,8 @@
 import { Character } from "../types";
 
-const toCharacters = (arr: string[]): Character[] => {
-  return arr.map((c) => {
-    return { value: c, accountedFor: false };
+const toCharacters = (str: string, setRef = false): Character[] => {
+  return str.split("").map((char: string, index: number) => {
+    return { value: char, index, ref: setRef ? Symbol(char) : null };
   });
 };
 
