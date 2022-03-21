@@ -48,11 +48,11 @@ const result = striff(str1, str2);
 {
   added: [
     {
-      character: "d",
+      value: "d",
       index: 3
     },
     {
-      character: "e",
+      value: "e",
       index: 4
     }
   ],
@@ -78,11 +78,11 @@ const result = striff(str1, str2);
     added: [],
     removed: [
     {
-      character: "b",
+      value: "b",
       index: 1
     },
     {
-      character: "c",
+      value: "c",
       index: 2
     }
   ]
@@ -109,15 +109,15 @@ const result = striff(str1, str2);
   added: [],
   removed: [
     {
-      character: "b",
+      value: "b",
       index: 2
     },
     {
-      character: "b",
+      value: "b",
       index: 3
     },
     {
-      character: "c",
+      value: "c",
       index: 4
     }
   ]
@@ -142,15 +142,15 @@ const result = striff(str1, str2);
   added: [].
   removed: [
     {
-      character: "a",
+      value: "a",
       index: 0
     },
     {
-      character: "b",
+      value: "b",
       index: 1
     },
     {
-      character: "b",
+      value: "b",
       index: 2
     }
   ]
