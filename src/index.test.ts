@@ -19,7 +19,7 @@ describe("characters are added", () => {
     const { added, removed } = striff("hi pal", "hi, pal");
 
     expect(removed).toHaveLength(0);
-    expect(added).toEqual([{ value: ",", index: 2}]);
+    expect(added).toEqual([{ value: ",", index: 2 }]);
   });
 });
 
@@ -52,6 +52,13 @@ describe("characters are removed", () => {
         index: 0,
       },
     ]);
+  });
+
+  it("Correctly diffs when the same character is used multiple times.", () => {
+    const { added, removed } = striff("wow", "ow");
+
+    expect(added).toHaveLength(0);
+    expect(removed).toEqual([{ value: "w", index: 0 }]);
   });
 });
 

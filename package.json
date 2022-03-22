@@ -2,7 +2,7 @@
   "name": "striff",
   "description": "Real simple string diffing.",
   "author": "Alex MacArthur (https://macarthur.me)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
