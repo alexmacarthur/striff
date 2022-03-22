@@ -1,36 +1,44 @@
 import { DiffResult, Character } from "./types";
 import deleteRef from "./utils/deleteRef";
+import fromCharacters from "./utils/fromCharacters";
 import getAllParts from "./utils/getAllParts";
 import toCharacters from "./utils/toCharacters";
 
 const getDiff = (partsArr: Character[][], arr1: Character[], arr2: Character[]) => {
-  let str2 = arr2.map((c: Character) => c.value).join("");
+  let str2 = fromCharacters(arr2);
   let matched = new Map<Symbol | null, string>();
   let matchedIndicies: {[key: string]: number} = {};
 
   partsArr.forEach((part: Character[]) => {
-    let partString = part.map((c) => c.value).join("");
+    let partString = fromCharacters(part);
     let pattern = new RegExp(partString);
 
     // If this little thing matches ANY part of the string, it's in.
     let result = pattern.exec(str2);
-
-    // We found a match, so let's spread it into our 'matched' store.
-    let pastMatch = matchedIndicies[result?.index || ""];
+    let resultIndex = result?.index;
+    let pastMatchLength = matchedIndicies[resultIndex ?? ""] || 0;
 
     // Give matched strings of longer length over all others.
-    if (result && (!pastMatch || partString.length > pastMatch)) {
-      matchedIndicies[result.index] = partString.length;
+    if (result && (partString.length > pastMatchLength)) {
+      matchedIndicies[resultIndex as number] = partString.length;
 
       // Since this is matched, I can safely update the second
       // string with symbol references.
-      let partIndex = 0;
-      for (let i = result.index; i < part.length + result.index; i++) {
-        arr2[i].ref = part[partIndex].ref;
-        partIndex++;
+      part.forEach((partItem, index) => {
+        arr2[(resultIndex as number) + index].ref = partItem.ref;
+      })
+
+      // At this point, it's possible that other parts
+      // already matched the string and had their items set to the
+      // `matched` store. We need to find those indicies and unset them.
+      for (let i = result.index; i < (result.index + pastMatchLength); i++) {
+        let refToReset = arr1[i]?.ref;
+        matched.delete(refToReset);
       }
 
       // Throw each of the matched characters into storage.
+      // These will always be from the FIRST string, so each
+      // of them will already have a filled `ref`.
       part.forEach((char) => matched.set(char.ref, char.value));
     }
   });
