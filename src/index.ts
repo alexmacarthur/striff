@@ -11,7 +11,9 @@ const getDiff = (partsArr: Character[][], arr1: Character[], arr2: Character[]) 
 
   partsArr.forEach((part: Character[]) => {
     let partString = fromCharacters(part);
-    let pattern = new RegExp(partString);
+
+    // One day, `RegExp.replace` will hopefully be built-in.
+    let pattern = new RegExp(partString.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
 
     // If this little thing matches ANY part of the string, it's in.
     let result = pattern.exec(str2);
