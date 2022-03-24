@@ -7,6 +7,13 @@ it("Correctly diffs when strings are identical.", () => {
   expect(removed).toHaveLength(0);
 });
 
+it("Strings are RegEx-escaped", () => {
+  const { added, removed } = striff("Hi?", "Hi!");
+
+  expect(removed).toEqual([{ value: "?", index: 2 }]);
+  expect(added).toEqual([{ value: "!", index: 2 }]);
+});
+
 describe("characters are added", () => {
   it("Correctly diffs when characters are added to end.", () => {
     const { added, removed } = striff("abc", "abcd");
