@@ -124,7 +124,7 @@ const result = striff(str1, str2);
 }
 ```
 
-For those whose whose characters were changed at the _beginning_, the indices will be grouped together at the beginning.
+For those whose characters were changed at the _beginning_, the indices will be grouped together at the beginning.
 
 #### Input
 
