@@ -1,6 +1,10 @@
 import { Character } from "../types";
 
-const getAllParts = (strArray: Character[]): Character[][] => {
+/**
+ * From left -> right, slice a string into every
+ * possible combination.
+ */
+let getAllParts = (strArray: Character[]): Character[][] => {
   let allParts = [];
 
   for (let i = 0; i < strArray.length; i++) {
