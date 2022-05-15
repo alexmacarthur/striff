@@ -1,9 +1,13 @@
 import { Character } from "../types";
 
-let toCharacters = (str: string, setRef = false): Character[] => {
-  return str.split("").map((char: string, index: number) => {
-    return { value: char, index, ref: setRef ? Symbol(char) : null };
+let toCharacters = (str: string): Character[] =>
+  str.split("").map((char: string, index: number) => {
+    return {
+      value: char,
+      index,
+      ref: Symbol(char),
+      pointsTo: null,
+    };
   });
-};
 
 export default toCharacters;

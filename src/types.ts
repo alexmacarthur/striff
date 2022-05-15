@@ -1,7 +1,8 @@
 export interface Character {
   index: number,
   value: string,
-  ref: Symbol | null
+  ref: Symbol,
+  pointsTo: Symbol | null
 }
 
 export type PrunedCharacter = Pick<Character, "index" | "value">;
