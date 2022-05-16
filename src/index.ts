@@ -33,13 +33,13 @@ let getDiff = (partsArr: Character[][], arr1: Character[], arr2: Character[]) =>
         let originalItem = arr1[partItem.index];
 
         // The first string character has already been matched
-        // with a second string character. Something's up.
-        // if (
-        //   originalItem.pointsTo &&
-        //   originalItem.pointsTo !== arr2[characterIndex].ref
-        // ) {
-        //   console.log('This one\'s already been matched to something, bud:', partItem.value);
-        // }
+        // with a second string character. Skip it!
+        if (
+          originalItem.pointsTo &&
+          originalItem.pointsTo !== arr2[characterIndex].ref
+        ) {
+          return;
+        }
 
         // Create a two-way binding between the characters:
         // Point the first string character to the second's ref.
@@ -51,7 +51,7 @@ let getDiff = (partsArr: Character[][], arr1: Character[], arr2: Character[]) =>
       // already matched the string and had their items set to the
       // `matched` store. We need to find those indicies and unset them.
       for (let i = result.index; i < result.index + pastMatchLength; i++) {
-        matched.delete(arr1[i].ref);
+        matched.delete(arr1[i]?.ref);
       }
 
       // Throw each of the matched characters into storage.
@@ -81,7 +81,6 @@ let getDiff = (partsArr: Character[][], arr1: Character[], arr2: Character[]) =>
 
 let striff = (str1: string, str2: string): DiffResult => {
   let strArr1 = toCharacters(str1);
-
   let strArr2 = toCharacters(str2).map((char, index) => {
     let str1Char = strArr1[index];
 

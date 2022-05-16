@@ -169,3 +169,67 @@ describe("characters are changed and added", () => {
     ]);
   });
 });
+
+describe("multiple subsequent characters are in middle", () => {
+  it("simple example - added", () => {
+    const { added, removed } = striff("yxy", "yxxxy");
+
+    expect(added).toHaveLength(2);
+    expect(removed).toHaveLength(0);
+    expect(added).toEqual([
+      {
+        value: "x",
+        index: 2,
+      },
+      {
+        value: "x",
+        index: 3,
+      },
+    ]);
+  });
+
+  it("simple example - removed", () => {
+    const { added, removed } = striff("yxxxy", "yxy");
+
+    expect(removed).toHaveLength(2);
+    expect(added).toHaveLength(0);
+    expect(removed).toEqual([
+      {
+        value: "x",
+        index: 1,
+      },
+      {
+        value: "x",
+        index: 2,
+      },
+    ]);
+  });
+
+  it("line breaks are used", () => {
+      const str1 = `
+xxx
+22
+111
+`;
+      const str2 = `
+xxx
+2222
+111
+`;
+
+    const { added, removed } = striff(str1, str2);
+
+    expect(added).toHaveLength(2);
+    expect(removed).toHaveLength(0);
+    expect(added).toEqual([
+      {
+        value: "2",
+        index: 7,
+      },
+      {
+        value: "2",
+        index: 8,
+      }
+    ]);
+  });
+});
