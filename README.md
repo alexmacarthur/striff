@@ -89,9 +89,9 @@ const result = striff(str1, str2);
 }
 ```
 
-### Strings w/ Duplicate Characters
+### Strings w/ Duplicate, Consecutive Characters
 
-Handling strings with duplicate, consecutive characters removed is a little weird. For strings whose characters were changed at the _end_, the indices will be grouped together at the end of the string.
+For strings whose characters were changed at the _end_, the indices will be grouped together at the end of the string.
 
 #### Input
 
