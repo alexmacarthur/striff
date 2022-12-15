@@ -1,5 +1,6 @@
 import getAllParts from "./getAllParts";
 import toCharacters from "./toCharacters";
+import { it, expect } from "vitest";
 
 it("crawls string to break it into parts", () => {
   let string = toCharacters("abc");

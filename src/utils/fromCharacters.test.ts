@@ -1,5 +1,6 @@
 import { Character } from "../types";
 import fromCharacters from "./fromCharacters";
+import { it, expect } from "vitest";
 
 it("converts characters to a string", () => {
   let characters: Character[] = [
