@@ -9,10 +9,32 @@
     <script type="module">
       import striff from "/src/index.ts"
 
-      let str1 = "abbbc";
-      let str2 = "ab";
+      let str1 = "abc";
+      let str2 = "xyz";
 
-      console.log(striff(str1, str2));
+      console.log(striff(str1, str2))
+      //https://blog.robertelder.org/diff-algorithm/
+
+//       [
+//     [
+//         "H",
+//         "i",
+//         "?",
+//         -1
+//     ],
+//     [
+//         "H",
+//         "i",
+//         -1,
+//         "!"
+//     ]
+// ];
+
+      // desired:
+      // {
+      //   added: { value: "!", index: 2 },
+      //   removed: { value: "?", index: 2 },
+      // }
     </script>
   </body>
 </html>

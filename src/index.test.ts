@@ -90,7 +90,7 @@ describe("characters have changed", () => {
     ]);
   });
 
-  it("Correctly diffs when many characters have changed.", () => {
+  it.only("Correctly diffs when many characters have changed.", () => {
     const { added, removed } = striff("abc", "xyz");
 
     expect(added).toHaveLength(3);
