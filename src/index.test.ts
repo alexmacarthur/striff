@@ -1,4 +1,5 @@
 import striff from "./index";
+import { it, expect, describe } from "vitest";
 
 it("Correctly diffs when strings are identical.", () => {
   const { added, removed } = striff("abc", "abc");

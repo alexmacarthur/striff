@@ -1,4 +1,5 @@
 import toCharacters from "./toCharacters";
+import { it, expect } from "vitest";
 
 it("converts a string into characters", () => {
   let result = toCharacters("hi");

@@ -1,5 +1,6 @@
 import deleteRef from "./deleteRef";
 import toCharacters from "./toCharacters";
+import { it, expect } from "vitest";
 
 it("deletes refs from characters", () => {
   let string = toCharacters("abc");
